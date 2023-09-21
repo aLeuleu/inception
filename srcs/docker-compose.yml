@@ -14,7 +14,6 @@ services:
     expose:
       - "3306"
 
-
   nginx:
     container_name: nginx
     volumes:

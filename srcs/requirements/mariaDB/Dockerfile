@@ -5,10 +5,10 @@ RUN apt install mariadb-server -y
 RUN rm -rf /var/lib/apt/lists/*
 
 # copie du fichier de configuration de la base de données
-COPY ./50-server.cnf    /etc/mysql/mariadb.conf.d/50-server.cnf
+COPY conf/50-server.cnf    /etc/mysql/mariadb.conf.d/50-server.cnf
 
 # copie du script de création de la base de données
-COPY ./sql_script.sh    /var/sql_script.sh
+COPY tools/sql_script.sh    /var/sql_script.sh
 
 # port de connexion (par defaut de mariaDB) à la base de données
 EXPOSE 3306

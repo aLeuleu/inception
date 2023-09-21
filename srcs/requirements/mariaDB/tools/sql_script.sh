@@ -1,9 +1,9 @@
 service mysql start;
 
-echo SQL_ROOT_PASSWORD : $SQL_ROOT_PASSWORD
-echo SQL_DATABASE : $SQL_DATABASE
-echo SQL_USER : $SQL_USER
-echo SQL_PASSWORD : $SQL_PASSWORD
+if [ -z "$SQL_ROOT_PASSWORD" ]; then
+  echo "SQL_ROOT_PASSWORD is empty"
+  exit 1
+fi
 
 mysql -u root -p$SQL_ROOT_PASSWORD -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"
 mysql -u root -p$SQL_ROOT_PASSWORD -e "CREATE USER IF NOT EXISTS \`${SQL_USER}\`@'localhost' IDENTIFIED BY '${SQL_PASSWORD}';"
