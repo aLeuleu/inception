@@ -10,7 +10,7 @@ services:
         SQL_USER: $SQL_USER
         SQL_PASSWORD: $SQL_PASSWORD
         SQL_ROOT_PASSWORD: $SQL_ROOT_PASSWORD
-      context: requirements/mariaDB
+      context: requirements/mariadb
       dockerfile: Dockerfile
     env_file: .env
     volumes:
@@ -64,10 +64,10 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/Users/aurelienlevra/data/wordpress'
+      device: '~/data/wordpress'
   mariadb:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/Users/aurelienlevra/data/mariadb'
+      device: '~/data/mariadb'
